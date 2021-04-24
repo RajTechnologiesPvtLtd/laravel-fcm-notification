@@ -1,0 +1,26 @@
+{
+    "name": "rajtechnologies/laravel-fcm-notification",
+    "description": "Google Firebase Cloud Messaging (fcm) Push Notification",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bhargav Raviya",
+            "email": "rajtechnologies@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "RajTechnologies\\FCM\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RajTechnologies\\FCM\\FcmNotificationServiceProvider"
+            ]
+        }
+    }
+}
