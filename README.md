@@ -40,6 +40,18 @@ return [
 ];
 ```
 
+Model of FCM
+
+```php
+use RajTechnologies\FCM\Models\FCM;
+```
+Change in User Model
+```php
+    public function fcm()
+    {
+        return $this->hasMany(FCM::class);
+    }
+```
 ## Example Usage
 
 Use Artisan to create a notification:
