@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\ServiceProvider;
 use RajTechnologies\FCM\Channels\FcmChannel;
 
-class FcmNotificationServiceProvider extends ServiceProvider
+class FCMServiceProvider extends ServiceProvider
 {
 	public function boot(){
 	    $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
