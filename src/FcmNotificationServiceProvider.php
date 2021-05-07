@@ -9,6 +9,9 @@ use Illuminate\Support\ServiceProvider;
 
 class FcmNotificationServiceProvider extends ServiceProvider
 {
+    public function boot(){
+	    $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+	}
     public function register()
     {
         Notification::resolved(function (ChannelManager $service) {

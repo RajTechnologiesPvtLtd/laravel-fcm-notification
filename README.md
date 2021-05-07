@@ -80,7 +80,7 @@ public function toFcm($notifiable)
     return $message;
 }
 ```
-
+User Model :-
 When sending to specific device, make sure your notifiable entity has `routeNotificationForFcm` method defined: 
 
 ```php
@@ -99,7 +99,7 @@ public function routeNotificationForFcm($notification)
 When sending to a topic, you may define so within the `toFcm` method in the notification:
 
 ```php
-use Benwilkins\FCM\FcmMessage;
+use RajTechnologies\FCM\FcmMessage;
 
 ...
 
@@ -117,7 +117,7 @@ public function toFcm($notifiable)
 Or when sending with a condition:
 
 ```php
-use Benwilkins\FCM\FcmMessage;
+use RajTechnologies\FCM\FcmMessage;
 
 ...
 

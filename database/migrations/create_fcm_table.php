@@ -8,8 +8,9 @@ class CreateFcmTable extends Migration
 {
     public function up()
     {
-        Schema::table('fcm', function (Blueprint $table) {
-            $table->id();
+        
+        Schema::create('fcm', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('token');
             $table->timestamps();
