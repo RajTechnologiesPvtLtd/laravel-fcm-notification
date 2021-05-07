@@ -1,33 +1,55 @@
 {
-    "name": "rajtechnologies/laravel-fcm-notification",
-    "description": "Google Firebase Cloud Messaging (fcm) Push Notification",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Bhargav Raviya",
-            "email": "rajtechnologies@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.6.4",
-        "guzzlehttp/guzzle": "^6.2|^7.0",
-        "illuminate/notifications": "~5.3|^6.0|^7.0|^8.0",
-        "illuminate/queue": "~5.3|^6.0|^7.0|^8.0",
-        "illuminate/support": "~5.3|^6.0|^7.0|^8.0",
-        "illuminate/config": "~5.3|^6.0|^7.0|^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "RajTechnologies\\FCM\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "RajTechnologies\\FCM\\FCMServiceProvider"
-            ]
-        }
+  "name": "rajtechnologies/laravel-fcm-notification",
+  "description": "Google Firebase Cloud Messaging (FCM) Push Notification Channel for Laravel",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "fcm",
+    "firebase",
+    "notifications"
+  ],
+  "authors": [
+    {
+      "name": "Bhargav Raviya",
+      "email": "rajtechnologies@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=5.6.4",
+    "guzzlehttp/guzzle": "^6.2|^7.0",
+    "illuminate/notifications": "~5.3|^6.0|^7.0|^8.0",
+    "illuminate/queue": "~5.3|^6.0|^7.0|^8.0",
+    "illuminate/support": "~5.3|^6.0|^7.0|^8.0",
+    "illuminate/config": "~5.3|^6.0|^7.0|^8.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "~1.0",
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "RajTechnologies\\FCM\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RajTechnologies\\FCM\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "RajTechnologies\\FCM\\FcmNotificationServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

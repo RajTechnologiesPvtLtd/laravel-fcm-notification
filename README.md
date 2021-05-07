@@ -13,12 +13,6 @@ This package can be installed through Composer.
 composer require rajtechnologies/laravel-fcm-notification
 ```
 
-Model of FCM
-
-```php
-use RajTechnologies\FCM\Models\FCM;
-```
-
 If installing on < Laravel 5.5 then add the service provider:
 
 ```php
@@ -66,7 +60,7 @@ public function via($notifiable)
 Add the method `public function toFcm($notifiable)` to your notification, and return an instance of `FcmMessage`: 
 
 ```php
-use RajTechnologies\FCM\Notifications\Messages\FcmMessage;
+use RajTechnologies\FCM\FcmMessage;
 
 ...
 
@@ -105,7 +99,7 @@ public function routeNotificationForFcm($notification)
 When sending to a topic, you may define so within the `toFcm` method in the notification:
 
 ```php
-use RajTechnologies\FCM\Notifications\Messages\FcmMessage;
+use Benwilkins\FCM\FcmMessage;
 
 ...
 
@@ -123,7 +117,7 @@ public function toFcm($notifiable)
 Or when sending with a condition:
 
 ```php
-use RajTechnologies\FCM\Notifications\Messages\FcmMessage;
+use Benwilkins\FCM\FcmMessage;
 
 ...
 
@@ -142,7 +136,7 @@ public function toFcm($notifiable)
 You may provide optional headers or override the request headers using `setHeaders()`:
 
 ```php
-use RajTechnologies\FCM\Notifications\Messages\FcmMessage;
+use RajTechnologies\FCM\FcmMessage;
 
 ...
 
