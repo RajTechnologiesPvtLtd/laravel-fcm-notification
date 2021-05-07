@@ -26,7 +26,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RajTechnologies\\FCM\\FcmNotificationServiceProvider"
+                "RajTechnologies\\FCM\\FCMServiceProvider"
             ]
         }
     }
