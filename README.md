@@ -104,7 +104,13 @@ When sending to specific device, make sure your notifiable entity has `routeNoti
  */
 public function routeNotificationForFcm($notification)
 {
-    return $this->device_token;
+    // return $this->device_token;
+    if($this->fcm){
+        $array = $this->fcm->pluck('token')->toArray();
+    return implode(',',$array);
+    }
+    return null;
+    // return $this->fcm[0]->token;
 }
 ```
 
