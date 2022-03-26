@@ -92,27 +92,47 @@ public function toFcm($notifiable)
     return $message;
 }
 ```
-User Model :-
-When sending to specific device, make sure your notifiable entity has `routeNotificationForFcm` method defined: 
+# OR Add User Model Functions
+
+When sending to specific device using Modal, make sure your notifiable entity has `routeNotificationForFcm` method defined: 
+
+Add Method For Notification Function
+```php
+public function routeNotificationForFcm($notification)
+    {
+        //For Single Token Only
+        /*
+        if($this->fcm){
+            return $this->fcm[0]->token;
+        }
+        */
+        if($this->fcm){
+            $array = $this->fcm->pluck('token')->toArray();
+        return implode(',',$array);
+        }
+        return null;
+    }
+```
+
+Add Static Method For Update Token
 
 ```php
-/**
- * Route notifications for the FCM channel.
- *
- * @param  \Illuminate\Notifications\Notification  $notification
- * @return string
- */
-public function routeNotificationForFcm($notification)
-{
-    // return $this->device_token;
-    if($this->fcm){
-        $array = $this->fcm->pluck('token')->toArray();
-    return implode(',',$array);
+public static function updateFCM($user_id,$fcm_token){
+        $fcmQuery = FCM::query();
+        $fcm = $fcmQuery->where('user_id',$user_id)->first();
+        if($fcm){
+            $fcm->update([
+                "token" =>$fcm_token
+            ]);
+            return true;
+        }
+        $fcmQuery->create([
+            "user_id" =>$user_id,
+            "token" =>$fcm_token
+        ]);
+        return true;
     }
-    return null;
-    // return $this->fcm[0]->token;
-}
-```
+``` 
 
 When sending to a topic, you may define so within the `toFcm` method in the notification:
 
@@ -198,3 +218,7 @@ for response interpreting documentation.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
+
+## First Inspiration of Admin Panel
+
+- **[Laravel FCM (Firebase Cloud Messaging) Notification Channel (Ben Wilkins)](https://github.com/benwilkins/laravel-fcm-notification)**
